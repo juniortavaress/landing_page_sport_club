@@ -59,12 +59,19 @@ const loopItems = [...testimonials, ...testimonials, ...testimonials];
 export default function Depoimentos() {
   const trackRef = useRef(null);
 
+  function getStep() {
+    const track = trackRef.current;
+    if (!track || track.children.length < 2) return 0;
+    const a = track.children[0].getBoundingClientRect();
+    const b = track.children[1].getBoundingClientRect();
+    return b.left - a.left;
+  }
+
   // começa o scroll no bloco do meio
   useLayoutEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const cardWidth = track.scrollWidth / loopItems.length;
-    track.scrollLeft = cardWidth * N;
+    track.scrollLeft = getStep() * N;
   }, []);
 
   useEffect(() => {
@@ -72,8 +79,8 @@ export default function Depoimentos() {
     if (!track) return;
 
     function normalize() {
-      const cardWidth = track.scrollWidth / loopItems.length;
-      const blockWidth = cardWidth * N;
+      const step = getStep();
+      const blockWidth = step * N;
       if (track.scrollLeft < blockWidth * 0.5) {
         track.scrollLeft += blockWidth;
       } else if (track.scrollLeft > blockWidth * 1.5) {
@@ -88,8 +95,7 @@ export default function Depoimentos() {
   function scrollByCard(dir) {
     const track = trackRef.current;
     if (!track) return;
-    const cardWidth = track.scrollWidth / loopItems.length;
-    track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+    track.scrollBy({ left: dir * getStep(), behavior: 'smooth' });
   }
 
   return (
@@ -113,7 +119,7 @@ export default function Depoimentos() {
           </button>
           <div className="testi-track" ref={trackRef}>
             {loopItems.map((t, i) => (
-              <div className="testi-card reveal" key={`${t.name}-${i}`}>
+              <div className="testi-card" key={`${t.name}-${i}`}>
                 <p>{t.text}</p>
                 <div className="testi-who">
                   <div className="avatar">{t.initials}</div>

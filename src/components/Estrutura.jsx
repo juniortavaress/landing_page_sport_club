@@ -9,7 +9,6 @@ const features = [
     ),
     title: 'Iluminação de LED',
     text: 'Quadras iluminadas para jogos até as 23h, todos os dias da semana.',
-    delay: '',
   },
   {
     icon: (
@@ -20,7 +19,6 @@ const features = [
     ),
     title: 'Vestiários e chuveiros',
     text: 'Armários, chuveiro quente e toalha disponível no balcão.',
-    delay: 'reveal-delay-1',
   },
   {
     icon: (
@@ -31,7 +29,6 @@ const features = [
     ),
     title: 'Bar & quiosque na areia',
     text: 'Água de coco, cerveja gelada e petiscos direto no pé da quadra.',
-    delay: 'reveal-delay-2',
   },
   {
     icon: (
@@ -42,7 +39,6 @@ const features = [
     ),
     title: 'Estacionamento gratuito',
     text: 'Vagas cobertas para quem chega de carro, sem custo extra.',
-    delay: '',
   },
   {
     icon: (
@@ -53,7 +49,6 @@ const features = [
     ),
     title: 'Aluguel de equipamento',
     text: 'Raquetes, bolas e redes prontas — não precisa levar nada.',
-    delay: 'reveal-delay-1',
   },
   {
     icon: (
@@ -65,7 +60,6 @@ const features = [
     ),
     title: 'Espaço kids monitorado',
     text: 'Área de recreação com monitores enquanto os adultos jogam.',
-    delay: 'reveal-delay-2',
   },
   {
     icon: (
@@ -76,7 +70,6 @@ const features = [
     ),
     title: 'Aulas em família',
     text: 'Turmas de padel e beach tennis pra pais e filhos, juntos ou separados por nível.',
-    delay: 'reveal-delay-3',
   },
   {
     icon: (
@@ -87,7 +80,6 @@ const features = [
     ),
     title: 'Área de churrasqueiras',
     text: 'Espaço com churrasqueiras e mesas pra reunir o grupo depois do jogo ou em confraternizações.',
-    delay: 'reveal-delay-4',
   },
   {
     icon: (
@@ -97,7 +89,6 @@ const features = [
     ),
     title: 'Área coberta de convivência',
     text: 'Mesas à sombra pra quem espera, assiste ou só acompanha o jogo.',
-    delay: '',
   },
 ];
 
@@ -118,7 +109,7 @@ export default function Estrutura() {
 
         <div className="feat-grid">
           {features.map((f) => (
-            <div className={`feat reveal ${f.delay}`} key={f.title}>
+            <div className="feat" key={f.title}>
               {f.icon}
               <h4>{f.title}</h4>
               <p>{f.text}</p>
