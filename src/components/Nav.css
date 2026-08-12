@@ -23,22 +23,27 @@
 #progress{ position:fixed; top:0; left:0; height:3px; background:var(--rust); z-index:101; }
 
 @media (max-width:900px){
+  #topnav{ display:flex; justify-content:space-between; }
+  .navright{ gap:16px; }
   .navlinks{ display:none; }
   .navlinks.open{
     display:flex;
-    position:fixed; top:80px; left:0; right:0;
+    position:fixed; top:92px; right:16px; left:auto;
+    min-width:200px;
     background:var(--paper);
-    flex-direction:column; padding:24px 32px; gap:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,.1);
+    border-radius:6px;
+    flex-direction:column; padding:16px 20px; gap:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
   }
   .navlinks.open a{ color:var(--ink); }
   .menu-toggle{ display:flex; }
 }
 
 @media (max-width:480px){
-  #topnav{ padding:0 16px; gap:10px; }
+  #topnav{ padding:0 16px; height:64px; }
   .logo{ font-size:22px; }
   .clock{ display:none; }
-  .navright{ gap:12px; }
-  .navlinks.open{ padding:20px 16px; }
+  .navright{ gap:10px; }
+  .navright .btn{ padding:9px 14px; font-size:12px; }
+  .navlinks.open{ top:76px; padding:16px 20px; }
 }

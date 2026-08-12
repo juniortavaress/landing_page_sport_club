@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { scrollToSection } from '../utils/scrollToSection';
 import './Hero.css';
 
 export default function Hero() {
@@ -9,6 +10,11 @@ export default function Hero() {
     if (!v) return;
     v.play().catch(() => {});
   }, []);
+
+  function goToSection(e, id) {
+    e.preventDefault();
+    scrollToSection(id);
+  }
 
   return (
     <section id="hero">
@@ -37,10 +43,10 @@ export default function Hero() {
           jogam, as crianças brincam por perto — todo mundo fica.
         </p>
         <div className="hero-ctas reveal reveal-delay-2">
-          <a href="#quadras" className="btn btn-solid">
+          <a href="#quadras" onClick={(e) => goToSection(e, 'quadras')} className="btn btn-solid">
             Ver quadras disponíveis
           </a>
-          <a href="#estrutura" className="btn btn-ghost">
+          <a href="#estrutura" onClick={(e) => goToSection(e, 'estrutura')} className="btn btn-ghost">
             Pensado pra família
           </a>
         </div>

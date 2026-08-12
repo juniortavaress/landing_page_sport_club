@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useScrollProgress } from '../hooks/useScrollProgress';
 import { useLiveClock } from '../hooks/useLiveClock';
+import { scrollToSection } from '../utils/scrollToSection';
 import './Nav.css';
 
 const links = [
   { href: '#quadras', label: 'Quadras' },
   { href: '#como', label: 'Como funciona' },
-  { href: '#estrutura', label: 'Família' },
+  { href: '#estrutura', label: 'Estrutura' },
   { href: '#galeria', label: 'Galeria' },
   { href: '#local', label: 'Localização' },
 ];
@@ -15,19 +16,43 @@ export default function Nav() {
   const { scrolled, progressPct } = useScrollProgress();
   const clock = useLiveClock();
   const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    function onOutsideClick(e) {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener('pointerdown', onOutsideClick);
+    return () => document.removeEventListener('pointerdown', onOutsideClick);
+  }, [menuOpen]);
+
+  function handleLinkClick(e, href) {
+    e.preventDefault();
+    setMenuOpen(false);
+    scrollToSection(href.slice(1));
+  }
+
+  function goToTop(e) {
+    e.preventDefault();
+    setMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   return (
     <>
       <div id="progress" style={{ width: `${progressPct}%` }}></div>
 
-      <nav id="topnav" className={scrolled ? 'scrolled' : ''}>
-        <div className="logo">
+      <nav id="topnav" className={scrolled ? 'scrolled' : ''} ref={navRef}>
+        <a href="#" className="logo" onClick={goToTop}>
           SOLO<span>.</span>
-        </div>
+        </a>
         <ul className={`navlinks${menuOpen ? ' open' : ''}`}>
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} onClick={() => setMenuOpen(false)}>
+              <a href={l.href} onClick={(e) => handleLinkClick(e, l.href)}>
                 {l.label}
               </a>
             </li>
@@ -44,16 +69,16 @@ export default function Nav() {
           >
             Reservar
           </a>
-        </div>
-        <div
-          className="menu-toggle"
-          onClick={() => setMenuOpen((o) => !o)}
-          role="button"
-          aria-label="Abrir menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+          <div
+            className="menu-toggle"
+            onClick={() => setMenuOpen((o) => !o)}
+            role="button"
+            aria-label="Abrir menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </nav>
     </>
