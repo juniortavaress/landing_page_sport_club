@@ -1,0 +1,14 @@
+footer{ background:var(--night-deep); color:var(--paper); padding:70px 0 30px; }
+.foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:50px; border-bottom:1px solid rgba(251,246,236,.1); }
+.foot-grid h5{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; opacity:.55; margin-bottom:18px; }
+.foot-grid li{ margin-bottom:10px; font-size:14px; opacity:.85; }
+.foot-grid li a:hover{ opacity:.6; }
+.newsletter{ display:flex; margin-top:16px; border:1px solid rgba(251,246,236,.25); border-radius:2px; overflow:hidden; }
+.newsletter input{ flex:1; background:transparent; border:none; padding:12px 14px; color:var(--paper); font-family:var(--body); font-size:13px; }
+.newsletter input::placeholder{ color:rgba(251,246,236,.4); }
+.newsletter button{ padding:0 18px; background:var(--rust); color:var(--paper); font-family:var(--mono); font-size:12px; }
+.foot-bottom{ display:flex; justify-content:space-between; padding-top:26px; font-family:var(--mono); font-size:12px; opacity:.5; flex-wrap:wrap; gap:10px; }
+
+@media (max-width:900px){
+  .foot-grid{ grid-template-columns:1fr 1fr; }
+}
