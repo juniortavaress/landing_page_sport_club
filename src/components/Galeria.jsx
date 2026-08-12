@@ -14,15 +14,15 @@ import './Galeria.css';
 const items = [
   { className: 'g1', image: porDoSolImg, caption: 'Pôr do sol — Quadra 03', delay: '' },
   { className: 'g2', image: futevoleiImg, caption: 'Treino de futevôlei', delay: 'reveal-delay-1' },
-  { className: 'g5', image: fotoGaleria4Img, caption: 'Vôlei de praia, sábado', delay: 'reveal-delay-2' },
+  { className: 'g5', image: fotoGaleria4Img, caption: 'Padel de terça', delay: 'reveal-delay-2' },
   { className: 'g2', image: aulaKidsImg, caption: 'Aula kids', delay: 'reveal-delay-2' },
   { className: 'g4', image: duranteNoiteImg, caption: 'Noite de holofotes', delay: '' },
   { className: 'g3', image: fotoGaleriaImg, caption: 'Torneio de verão', delay: 'reveal-delay-1' },
-  { className: 'g5', image: padelFamiliaImg, caption: '', delay: 'reveal-delay-2' },
-  { className: 'g2', image: fotoGaleria3Img, caption: 'Happy hour pós-jogo', delay: 'reveal-delay-3' },
-  { className: 'g3', image: fotoGaleria2Img, caption: '', delay: 'reveal-delay-4' },
-  { className: 'g4', image: imageGaleriaImg, caption: '', delay: '' },
-  { className: 'g2', image: imagesGaleriaImg, caption: '', delay: 'reveal-delay-1' },
+  { className: 'g5', image: padelFamiliaImg, caption: 'Esporte em família', delay: 'reveal-delay-2' },
+  { className: 'g2', image: fotoGaleria3Img, caption: 'Padel de quinta', delay: 'reveal-delay-3' },
+  { className: 'g3', image: fotoGaleria2Img, caption: 'Quadras', delay: 'reveal-delay-4' },
+  { className: 'g4', image: imageGaleriaImg, caption: 'Aulas para adolescentes', delay: '' },
+  { className: 'g2', image: imagesGaleriaImg, caption: 'Treinamento individual', delay: 'reveal-delay-1' },
 ];
 
 export default function Galeria() {
