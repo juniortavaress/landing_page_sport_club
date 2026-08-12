@@ -24,3 +24,16 @@
 @keyframes dropline{ to{ top:40px; } }
 
 .court-lines{ position:absolute; bottom:0; left:0; width:100%; opacity:.5; z-index:0; pointer-events:none; }
+
+@media (max-width:480px){
+  .hero-inner{ padding:0 20px; }
+  .hero-kicker{ font-size:11px; letter-spacing:.14em; margin-bottom:14px; }
+  .hero-sub{ font-size:16px; margin:18px 0 28px; }
+  .hero-ctas{ gap:12px; }
+  .hero-ctas .btn{ width:100%; justify-content:center; padding:15px 20px; }
+  .scrollcue{ bottom:18px; }
+}
+
+@media (max-height:700px) and (max-width:480px){
+  .scrollcue{ display:none; }
+}

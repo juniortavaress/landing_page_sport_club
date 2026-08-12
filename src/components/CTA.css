@@ -38,3 +38,11 @@
 @media (max-width:900px){
   #cta{ padding:130px 0; }
 }
+
+@media (max-width:480px){
+  .cta-ctas{ flex-direction:column; align-items:stretch; }
+  .cta-btn-main,
+  .cta-btn-ghost{ justify-content:center; padding:16px 24px; }
+  .cta-meta{ flex-direction:column; gap:4px; }
+  .cta-meta .dot{ display:none; }
+}

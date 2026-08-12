@@ -12,3 +12,9 @@ footer{ background:var(--night-deep); color:var(--paper); padding:70px 0 30px; }
 @media (max-width:900px){
   .foot-grid{ grid-template-columns:1fr 1fr; }
 }
+
+@media (max-width:480px){
+  footer{ padding:56px 0 24px; }
+  .foot-grid{ grid-template-columns:1fr; gap:32px; padding-bottom:32px; }
+  .foot-bottom{ flex-direction:column; gap:6px; }
+}

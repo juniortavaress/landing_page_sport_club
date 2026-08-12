@@ -8,3 +8,8 @@
 @media (max-width:900px){
   .local-grid{ grid-template-columns:1fr; }
 }
+
+@media (max-width:480px){
+  #local{ padding:80px 0; }
+  .local-grid{ gap:36px; }
+}

@@ -14,7 +14,10 @@
 .navlinks a:hover::after{ width:100%; }
 .navright{ display:flex; align-items:center; gap:22px; justify-self:end; }
 .clock{ font-family:var(--mono); font-size:13px; letter-spacing:.05em; }
-.menu-toggle{ display:none; flex-direction:column; gap:5px; z-index:101; }
+.menu-toggle{
+  display:none; flex-direction:column; justify-content:center; align-items:center; gap:5px;
+  width:44px; height:44px; margin:-10px; z-index:101; cursor:pointer;
+}
 .menu-toggle span{ width:22px; height:2px; background:var(--paper); transition:.3s; }
 #topnav.scrolled .menu-toggle span{ background:var(--ink); }
 #progress{ position:fixed; top:0; left:0; height:3px; background:var(--rust); z-index:101; }
@@ -30,4 +33,12 @@
   }
   .navlinks.open a{ color:var(--ink); }
   .menu-toggle{ display:flex; }
+}
+
+@media (max-width:480px){
+  #topnav{ padding:0 16px; gap:10px; }
+  .logo{ font-size:22px; }
+  .clock{ display:none; }
+  .navright{ gap:12px; }
+  .navlinks.open{ padding:20px 16px; }
 }
