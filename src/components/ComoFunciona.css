@@ -8,6 +8,12 @@
 .steps-wrap{ position:relative; }
 .steps-svg{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
 .steps-svg path{ fill:none; stroke:rgba(251,246,236,.18); stroke-width:2; stroke-dasharray:6 10; }
+.steps-path-mobile{ opacity:0; }
+
+@media (max-width:900px){
+  .steps-path-desktop{ opacity:0; }
+  .steps-path-mobile{ opacity:1; }
+}
 .ball{ position:absolute; width:16px; height:16px; border-radius:50%; background:var(--rust); box-shadow:0 0 0 6px rgba(180,80,43,.18); z-index:0; top:0; left:0; transition:opacity .3s; }
 .steps{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
 .step{ padding-top:10px; }

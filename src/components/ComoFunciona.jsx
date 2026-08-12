@@ -23,7 +23,7 @@ const steps = [
 ];
 
 export default function ComoFunciona() {
-  const { sectionRef, wrapRef, pathRef, svgRef, ballRef } = useStepBall();
+  const { sectionRef, wrapRef, pathRef, pathMobileRef, svgRef, ballRef } = useStepBall();
 
   return (
     <section id="como" ref={sectionRef}>
@@ -47,8 +47,10 @@ export default function ComoFunciona() {
           >
             <path
               ref={pathRef}
+              className="steps-path-desktop"
               d="M60,40 C 260,180 400,-60 500,60 C 600,180 740,-60 940,40"
             />
+            <path ref={pathMobileRef} className="steps-path-mobile" d="M500,0 L500,200" />
           </svg>
           <div className="ball" ref={ballRef}></div>
           <div className="steps">
