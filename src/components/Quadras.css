@@ -1,0 +1,54 @@
+#quadras{ padding:140px 0 120px; background:var(--paper); }
+.courts-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.court-card{
+  position:relative; min-height:360px; border-radius:4px; overflow:hidden;
+  padding:28px; display:flex; flex-direction:column; justify-content:flex-end;
+  border:2px solid transparent;
+  box-shadow:0 1px 0 rgba(36,26,15,.06);
+  transition:transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s cubic-bezier(.2,.8,.2,1), border-color .4s ease;
+  will-change:transform;
+}
+.court-card:hover{
+  transform:scale(1.06);
+  box-shadow:0 30px 54px -16px rgba(36,26,15,.45);
+  border-color:var(--rust);
+  z-index:3;
+}
+.court-card-img{
+  position:absolute; inset:-2px; z-index:0;
+  background-size:cover; background-position:center;
+  transform:scale(1.001);
+  transition:transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.court-card:hover .court-card-img{ transform:scale(1.14); }
+.court-card-overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(16,10,4,.05) 0%, rgba(16,10,4,.15) 45%, rgba(16,10,4,.85) 100%);
+  transition:background .4s ease;
+}
+.court-card:hover .court-card-overlay{
+  background:linear-gradient(180deg, rgba(16,10,4,.1) 0%, rgba(16,10,4,.25) 45%, rgba(16,10,4,.9) 100%);
+}
+.court-card .tag{
+  position:relative; z-index:2;
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--floodlight);
+}
+.court-card h3{
+  position:relative; z-index:2; font-size:30px; margin:10px 0 18px; color:var(--paper);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.court-card:hover h3{ transform:translateY(-4px); }
+.court-card .meta{
+  position:relative; z-index:2;
+  display:flex; justify-content:space-between; gap:8px;
+  font-family:var(--mono); font-size:11px; color:var(--paper);
+  border-top:1px solid rgba(251,246,236,.3); padding-top:14px;
+}
+.court-card .meta b{ display:block; font-size:14px; font-family:var(--body); font-weight:600; margin-top:2px; color:var(--paper); }
+
+@media (max-width:900px){
+  .courts-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:560px){
+  .courts-grid{ grid-template-columns:1fr; }
+}
